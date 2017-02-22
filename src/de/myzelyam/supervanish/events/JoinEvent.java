@@ -48,6 +48,9 @@ public class JoinEvent implements EventExecutor, Listener {
                         && invisiblePlayers.contains(p.getUniqueId().toString())) {
                     e.setJoinMessage(null);
                 }
+                if (p.hasPermission("sv.joinvanished")) {
+                    invisiblePlayers.add(p.getUniqueId().toString());
+                }
                 // vanished:
                 if (invisiblePlayers.contains(p.getUniqueId().toString())) {
                     if (plugin.getServer().getPluginManager()
